@@ -1,13 +1,21 @@
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import { ShopPage } from "./pages/shop/ShopPage";
-import { CartPage } from "./pages/cart/CartPage";
-import { CheckoutPage } from "./pages/checkout/CheckoutPage";
-import { ThanksPage } from "./pages/checkout/ThanksPage";
-import { LoginPage } from "./pages/login/LoginPage";
-import { CMSPage } from "./cms/CMSPage";
-import { CMSProductsPage } from "./cms/orders/products/CMSProductsPage";
-import { CMSOrdersPage } from "./cms/orders/CMSOrdersPage";
-import { Navbar } from "./shared/components/core/Navbar";
+import {
+  BrowserRouter,
+  Navigate,
+  NavLink,
+  Route,
+  Routes,
+} from "react-router-dom";
+import {
+  CartPage,
+  CheckoutPage,
+  CMSOrdersPage,
+  CMSPage,
+  CMSProductsPage,
+  LoginPage,
+  ShopPage,
+  ThanksPage,
+} from "./pages";
+import { Navbar } from "@/shared/index";
 
 function App() {
   return (
