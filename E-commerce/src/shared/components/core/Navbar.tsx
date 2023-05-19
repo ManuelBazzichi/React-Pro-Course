@@ -1,9 +1,14 @@
 import { NavLink } from "react-router-dom";
+import { CartPanel } from "./CartPanel";
+import { useCartPanel } from "../../../services/cart";
+
+const isActive = (obj: { isActive: boolean }) => {
+  return obj.isActive ? "text-sky-400 font-bold" : "text-xl text-white";
+};
 
 export function Navbar() {
-  const isActive = (obj: { isActive: boolean }) => {
-    return obj.isActive ? "text-sky-400 font-bold" : "text-xl text-white";
-  };
+  const isCartPanelOpened = useCartPanel((state) => state.open);
+  const toggleCartPanel = useCartPanel((state) => state.toggle);
 
   return (
     <div className="fixed top-0 left-0 right-0 shadow-2xl z-10">
@@ -20,8 +25,16 @@ export function Navbar() {
         {/* Cart button badge */}
 
         <div>
-          <button className="btn-accent-lg">Cart: 0</button>
+          <button className="btn-accent-lg" onClick={toggleCartPanel}>
+            Cart: 0
+          </button>
         </div>
+
+        {/* Cart Panel */}
+
+        {isCartPanelOpened && <CartPanel />}
+
+        {/*   Actions Buttons */}
 
         <div className="fixed bottom-2 right-2 p-5">
           <NavLink to="login" className="btn accent lg">
