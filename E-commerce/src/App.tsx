@@ -9,12 +9,12 @@ import {
   ShopPage,
   ThanksPage,
 } from "./pages";
-import { Navbar } from "@/shared/index";
+import { NavBar } from "@/shared/index";
 
 function App() {
   return (
     <BrowserRouter>
-      <Navbar />
+      <NavBar />
       <hr />
       <div className="page">
         <Routes>
