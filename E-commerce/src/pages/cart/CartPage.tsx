@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom";
 import {
   selectCartList,
   selectTotalCartCost,
@@ -10,6 +11,8 @@ export function CartPage() {
 
   const increaseQty = useCart((state) => state.increaseQty);
   const decreaseQty = useCart((state) => state.decreaseQty);
+
+  const isEmpty = list.length === 0;
 
   return (
     <div>
@@ -54,6 +57,16 @@ export function CartPage() {
       </ul>
 
       <div className="text-4xl text-right">Total: € {totalCost}</div>
+
+      <div className="flex justify-center">
+        {isEmpty ? (
+          ""
+        ) : (
+          <NavLink to="/checkout" className="btn primary lg">
+            Confirm order
+          </NavLink>
+        )}
+      </div>
     </div>
   );
 }
